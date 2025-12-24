@@ -1,18 +1,9 @@
 {
-  "name": "app1",
+  "name": "app2-physics-formulas",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "High School Physics Formulas",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "body-parser": "^2.2.1",
-    "ejs": "^3.1.10",
-    "express": "^5.2.1"
+    "start": "node server.js"
   }
 }

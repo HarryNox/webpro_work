@@ -1,89 +1,100 @@
-"use strict"; // 要件: JSファイルの先頭に付ける
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
 const PORT = 3000;
+const DATA_FILE = path.join(__dirname, 'public', 'formulas.json');
 
-// 設定
-app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
-
-// ■ データ保存用変数（DBを使わない要件のため）
-// 例として id, name, description を持つデータとします
-let dataList = [
-    { id: 1, name: 'サンプル1', description: '詳細内容1' },
-    { id: 2, name: 'サンプル2', description: '詳細内容2' }
-];
-let nextId = 3; // 次のID用
-
-// ■■■ ルーティング（図の通りに実装） ■■■
-
-// 1. 公式一覧 ( /formula ) -> 一覧表示
-app.get('/formula', (req, res) => {
-    res.render('index', { list: dataList });
-});
-
-// 2. 詳細表示 ( /formula/:number )
-app.get('/formula/:number', (req, res) => {
-    const id = parseInt(req.params.number);
-    const item = dataList.find(d => d.id === id);
-    if (item) {
-        res.render('detail', { item: item });
-    } else {
-        res.send('データが見つかりません');
+const server = http.createServer((req, res) => {
+    // API: 公式データの取得 (GET)
+    if (req.method === 'GET' && req.url === '/api/formulas') {
+        fs.readFile(DATA_FILE, (err, data) => {
+            if (err) {
+                res.writeHead(500);
+                res.end('Error reading data');
+                return;
+            }
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(data);
+        });
+        return;
     }
-});
 
-// 3. 新規登録画面 ( /formula/create )
-app.get('/formula/create', (req, res) => {
-    res.render('create');
-});
+    // API: 公式データの追加 (POST)
+    if (req.method === 'POST' && req.url === '/api/formulas') {
+        let body = '';
+        req.on('data', chunk => body += chunk.toString());
+        req.on('end', () => {
+            try {
+                const newFormula = JSON.parse(body);
+                
+                fs.readFile(DATA_FILE, (err, data) => {
+                    if (err) {
+                        // ファイルがない場合は空配列からスタート
+                        data = '[]';
+                    }
+                    
+                    let formulas = [];
+                    try {
+                        formulas = JSON.parse(data);
+                    } catch (e) {
+                        formulas = [];
+                    }
 
-// 4. 新規登録処理 ( post /formula )
-app.post('/formula', (req, res) => {
-    const newItem = {
-        id: nextId++,
-        name: req.body.name,
-        description: req.body.description
-    };
-    dataList.push(newItem); // 変数に記録
-    res.redirect('/formula'); // 一覧に戻る
-});
+                    // IDの自動採番
+                    const maxId = formulas.length > 0 ? Math.max(...formulas.map(f => f.id)) : 0;
+                    newFormula.id = maxId + 1;
 
-// 5. 編集画面 ( /formula/edit/:number )
-app.get('/formula/edit/:number', (req, res) => {
-    const id = parseInt(req.params.number);
-    const item = dataList.find(d => d.id === id);
-    if (item) {
-        res.render('edit', { item: item });
-    } else {
-        res.redirect('/formula');
+                    formulas.push(newFormula);
+
+                    fs.writeFile(DATA_FILE, JSON.stringify(formulas, null, 2), (err) => {
+                        if (err) {
+                            res.writeHead(500);
+                            res.end('Error saving data');
+                            return;
+                        }
+                        res.writeHead(200, { 'Content-Type': 'application/json' });
+                        res.end(JSON.stringify(newFormula));
+                    });
+                });
+            } catch (e) {
+                res.writeHead(400);
+                res.end('Invalid JSON');
+            }
+        });
+        return;
     }
-});
 
-// 6. 更新処理 ( /formula/update/:number ) ※図に合わせてURLを設定
-app.post('/formula/update/:number', (req, res) => {
-    const id = parseInt(req.params.number);
-    const index = dataList.findIndex(d => d.id === id);
-    if (index !== -1) {
-        // データを更新
-        dataList[index].name = req.body.name;
-        dataList[index].description = req.body.description;
+    // 静的ファイルの配信処理
+    const safeUrl = req.url.split('?')[0];
+    let filePath = path.join(__dirname, 'public', safeUrl === '/' ? 'index.html' : safeUrl);
+    
+    const extname = path.extname(filePath);
+    let contentType = 'text/html';
+    switch (extname) {
+        case '.js': contentType = 'text/javascript'; break;
+        case '.css': contentType = 'text/css'; break;
+        case '.json': contentType = 'application/json'; break;
+        case '.png': contentType = 'image/png'; break;
+        case '.jpg': contentType = 'image/jpg'; break;
     }
-    res.redirect('/formula'); // 一覧に戻る
+
+    fs.readFile(filePath, (err, content) => {
+        if (err) {
+            if (err.code === 'ENOENT') {
+                res.writeHead(404);
+                res.end("<h1>404 Not Found</h1>", 'utf-8');
+            } else {
+                res.writeHead(500);
+                res.end(`Server Error: ${err.code}`);
+            }
+        } else {
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content, 'utf-8');
+        }
+    });
 });
 
-// 7. 削除処理 ( /formula/delete/:number ) 
-// ※図ではGETのように見えますが、処理なので便宜上GETで実装しredirectします
-app.get('/formula/delete/:number', (req, res) => {
-    const id = parseInt(req.params.number);
-    dataList = dataList.filter(d => d.id !== id); // 変数から削除
-    res.redirect('/formula'); // 一覧に戻る
-});
-
-// サーバー起動
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}/formula`);
+server.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
