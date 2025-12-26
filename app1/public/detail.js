@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    fetch('songs.json')
+    fetch('/api/songs')
         .then(response => response.json())
         .then(data => {
-            const song = data.find(s => s.id === id);
+            const song = data.find(s => s.id == id);
             
             if (song) {
                 renderDetail(song, container);
@@ -40,7 +40,6 @@ function renderDetail(song, container) {
         videoHtml = `<p><a href="${song.url}" target="_blank">動画リンク</a></p>`;
     }
 
-    // 発表年(year)の表示を削除し、公開年月日(releaseDate)のみにしました
     container.innerHTML = `
         <div class="detail-card">
             <h2>${song.title}</h2>
@@ -71,6 +70,9 @@ function renderDetail(song, container) {
                     <td>${song.releaseDate || '-'}</td>
                 </tr>
             </table>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="index.html" class="btn">一覧に戻る</a>
+            </div>
         </div>
     `;
 }

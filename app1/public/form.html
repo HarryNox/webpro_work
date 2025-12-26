@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>楽曲登録・編集</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        .link-cancel {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #999;
+            text-decoration: none;
+        }
+
+        .link-cancel:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 id="page-title">楽曲登録</h1>
+        </header>
+
+        <form id="song-form">
+            <input type="hidden" id="id">
+
+            <div class="form-group">
+                <label>タイトル <span style="color:red">*</span></label>
+                <input type="text" id="title" required placeholder="例: ハナタバ">
+            </div>
+
+            <div class="form-group">
+                <label>YouTube URL <span style="color:red">*</span></label>
+                <input type="url" id="url" required placeholder="https://youtu.be/...">
+            </div>
+
+            <div class="form-group">
+                <label>公開年月日 (YYYY-MM-DD)</label>
+                <input type="date" id="releaseDate">
+            </div>
+
+            <div class="form-group">
+                <label>発表年 (Year)</label>
+                <input type="number" id="year" placeholder="例: 2022">
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+            <div class="form-group">
+                <label>Vocal</label>
+                <input type="text" id="vocal" placeholder="例: 可不">
+            </div>
+
+            <div class="form-group">
+                <label>Illustration</label>
+                <input type="text" id="illustration" placeholder="例: 春 @nocopyrightgirl">
+            </div>
+
+            <div class="form-group">
+                <label>Movie</label>
+                <input type="text" id="movie" placeholder="例: 瀬戸わらび @yk__rm">
+            </div>
+
+            <div class="form-group">
+                <label>MIX</label>
+                <input type="text" id="mix" placeholder="例: はるお @haluo_haluo">
+            </div>
+
+            <div class="form-group">
+                <label>Mastering</label>
+                <input type="text" id="mastering" placeholder="例: はるお @haluo_haluo">
+            </div>
+
+            <div style="margin-top: 40px;">
+                <button type="submit" class="btn-submit">保存する</button>
+            </div>
+        </form>
+
+        <a href="index.html" class="link-cancel">キャンセルして一覧に戻る</a>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+
+</html>
