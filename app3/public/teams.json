@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "name": "ZETA DIVISION",
+    "icon": "images/ZETA_icon.png",
+    "image": "images/ZETA_all.jpg",
+    "achievements": "2021 夏季IVC 優勝\n2022 夏季IJL レギュラーシーズン 1位/プレイオフ優勝\n2022 秋季IJL レギュラーシーズン 1位/プレイオフ 優勝\n2023 夏季IJL レギュラーシーズン 1位/プレイオフ 優勝\n2023 秋季IJL レギュラーシーズン 2位/プレイオフ 優勝\n2024 夏季IJL レギュラーシーズン 2位/プレイオフ 優勝\n2025 COAⅧ Global Finals 優勝\n2025 夏季 IJL レギュラーシーズン 3位/プレイオフ 準優勝\n2025 秋季 IJL レギュラーシーズン 1位/プレイオフ 優勝",
+    "twitter": "https://twitter.com/zetadivision",
+    "youtube": "https://www.youtube.com/c/ZETADIVISION",
+    "members": [
+      { "name": "Alphar", "role": "Survivor", "image": "images/zeta_alphar.jpg" },
+      { "name": "Dorisu", "role": "Survivor", "image": "images/zeta_dorisu.jpg" },
+      { "name": "Hametu", "role": "Survivor", "image": "images/zeta_hametu.jpg" },
+      { "name": "Kznk", "role": "Survivor", "image": "images/zeta_kznk.jpg" },
+      { "name": "MiraiK", "role": "Coach", "image": "images/zeta_miraik.webp" },
+      { "name": "mkmldy", "role": "Hunter", "image": "images/zeta_mkmldy.jpg" },
+      { "name": "Peter", "role": "Hunter", "image": "images/zeta_peter.jpg" },
+      { "name": "Shinami", "role": "Survivor", "image": "images/zeta_shinami.webp" },
+      { "name": "Silk", "role": "Coach", "image": "images/zeta_silk.jpg" },
+      { "name": "Nozomi.", "role": "Creator", "image": "images/zeta_nozomi.jpg" },
+      { "name": "ピアソン 唯", "role": "Creator", "image": "images/zeta_yui.jpg" },
+      { "name": "ピアソン のん", "role": "Creator", "image": "images/zeta_non.webp" },
+      { "name": "mellchan", "role": "Manager", "image": "images/zeta_mell.jpg" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "SCARZ",
+    "icon": "images/SCARZ_icon.png",
+    "image": "images/SZ_all.jpg",
+    "achievements": "2021 秋季 IVC 優勝\n2022 夏季 IJL レギュラーシーズン 3位/プレイオフ 準優勝\n2023 夏季 IJL レギュラーシーズン 3位/プレイオフ 準優勝\n2023 秋季 IJL レギュラーシーズン 1位/プレイオフ 準優勝\n2025 秋季 IJL レギュラーシーズン 2位/プレイオフ 準優勝",
+    "twitter": "https://twitter.com/SCARZ5",
+    "youtube": "https://www.youtube.com/c/SCARZChannel",
+    "members": [
+      { "name": "mone", "role": "Survivor", "image": "images/sz_mone.jpg" },
+      { "name": "soar", "role": "Survivor", "image": "images/sz_soar.jpg" },
+      { "name": "gnk", "role": "Survivor", "image": "images/sz_gnk.jpg" },
+      { "name": "tarako", "role": "Survivor", "image": "images/sz_tarako.jpg" },
+      { "name": "yora", "role": "Survivor", "image": "images/sz_yora.jpg" },
+      { "name": "Burio", "role": "Hunter", "image": "images/sz_burio.jpg" },
+      { "name": "Latty", "role": "Hunter", "image": "images/sz_latty.jpg" },
+      { "name": "4ta5", "role": "Coach", "image": "images/sz_4ta5.jpg" },
+      { "name": "asagi", "role": "Manager", "image": "images/sz_asagi.png" },
+      { "name": "HZ丶", "role": "Manager", "image": "images/sz_hz.jpg" },
+      { "name": "mosiusa", "role": "Creator", "image": "images/sz_mosiusa.png" },
+      { "name": "SiLia", "role": "Creator", "image": "images/sz_silia.png" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "REJECT",
+    "icon": "images/RC_icon.png",
+    "image": "images/RC_all.jpg",
+    "achievements": "2024 COAⅦ Global Finals 準優勝\n2024 夏季 IJL レギュラーシーズン 1位/プレイオフ 3位\n2025 夏季 IJL レギュラーシーズン 2位/プレイオフ 優勝\n2025 2025 IVS招待大会 優勝",
+    "twitter": "https://twitter.com/RC_REJECT",
+    "youtube": "https://www.youtube.com/@REJECTesports",
+    "members": [
+      { "name": "AKa", "role": "Hunter", "image": "images/rc_aka.png" },
+      { "name": "Alf", "role": "Hunter", "image": "images/rc_alf.png" },
+      { "name": "City", "role": "Survivor", "image": "images/rc_city.png" },
+      { "name": "Soba", "role": "Survivor", "image": "images/rc_soba.png" },
+      { "name": "Raolie", "role": "Survivor", "image": "images/rc_raolie.png" },
+      { "name": "fuku", "role": "Survivor", "image": "images/rc_fuku.png" },
+      { "name": "Unpyi", "role": "Survivor", "image": "images/rc_unpyi.png" },
+      { "name": "hhu", "role": "Coach", "image": "images/rc_hhu.png" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "FENNEL",
+    "icon": "images/FL_icon.png",
+    "image": "images/FL_all.jpg",
+    "achievements": "2023 夏季 IJL レギュラーシーズン 2位/プレイオフ 4位\n2023 秋季 IJL レギュラーシーズン 4位/プレイオフ 3位\n2024 夏季 IJL レギュラーシーズン 4位/プレイオフ 2位\n2024 秋季 IJL レギュラーシーズン 3位/プレイオフ 3位\n2024 2024 IVS 招待大会 3位",
+    "twitter": "https://twitter.com/FENNEL_official",
+    "youtube": "https://www.youtube.com/c/FENNEL_official",
+    "members": [
+      { "name": "Hasha", "role": "Hunter", "image": "images/fl_hasha.png" },
+      { "name": "PiPiCha", "role": "Hunter", "image": "images/fl_pipicha.png" },
+      { "name": "maeken", "role": "Survivor", "image": "images/fl_maeken.png" },
+      { "name": "Sasori(Kit)", "role": "Survivor", "image": "images/fl_sasori.png" },
+      { "name": "Avagg(Yougg)", "role": "Survivor", "image": "images/fl_avagg.png" },
+      { "name": "520", "role": "Survivor", "image": "images/fl_520.png" },
+      { "name": "Kat", "role": "Survivor", "image": "images/fl_kat.png" },
+      { "name": "Katsuki", "role": "Survivor", "image": "images/fl_katsuki.jpeg" },
+      { "name": "moririn", "role": "Survivor", "image": "images/fl_moririn.png" },
+      { "name": "noNino", "role": "Coach", "image": "images/fl_nonino.png" },
+      { "name": "yoshino", "role": "Manager", "image": "images/fl_yoshino.jpg" },
+      { "name": "Precor", "role": "Creator", "image": "images/fl_precor.jpg" },
+      { "name": "Yuto", "role": "Creator", "image": "images/fl_yuto.png" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "DetonatioN FocusMe",
+    "icon": "images/DFM_icon.png",
+    "image": "images/DFM_all.jpg",
+    "achievements": "2025 夏季IJL レギュラーシーズン 5位/プレイオフ 6位\n2025 秋季IJL レギュラーシーズン 7位/プレイオフ 未出場",
+    "twitter": "https://twitter.com/team_detonation",
+    "youtube": "https://www.youtube.com/@DetonatioNFocusMe",
+    "members": [
+      { "name": "Chikin", "role": "Hunter", "image": "images/dfm_chikin.png" },
+      { "name": "Yami", "role": "Hunter", "image": "images/dfm_yami.png" },
+      { "name": "appai", "role": "Survivor", "image": "images/dfm_appai.png" },
+      { "name": "Felix", "role": "Survivor", "image": "images/dfm_felix.png" },
+      { "name": "Nerisu", "role": "Survivor", "image": "images/dfm_nerisu.png" },
+      { "name": "Takoyaki", "role": "Survivor", "image": "images/dfm_takoyaki.png" },
+      { "name": "Riz", "role": "Survivor", "image": "images/dfm_riz.png" },
+      { "name": "Kokua", "role": "Coach", "image": "images/dfm_kokua.png" },
+      { "name": "U4", "role": "Manager", "image": "images/dfm_U4.jpg" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "AXIZ WAVE",
+    "icon": "images/AXIZ_icon.png",
+    "image": "images/AXIZ_all.jpg",
+    "achievements": "2021 秋季 IVC 3位\n2024 秋季 IJL レギュラーシーズン 2位/プレイオフ 優勝\n2025 COAⅧ Global Finals 3位\n2025 夏季 IJL レギュラーシーズン 1位/プレイオフ 3位",
+    "twitter": "https://twitter.com/AXIZ_WAVE",
+    "youtube": "https://www.youtube.com/@AXIZ_WAVE",
+    "members": [
+      { "name": "KaKaKa", "role": "Hunter", "image": "images/axiz_kakaka.png" },
+      { "name": "Kakiri", "role": "Hunter", "image": "images/axiz_kakiri.png" },
+      { "name": "Nyan", "role": "Survivor", "image": "images/axiz_nyan.png" },
+      { "name": "Atto", "role": "Survivor", "image": "images/axiz_atto.png" },
+      { "name": "Takakou", "role": "Survivor", "image": "images/axiz_takakou.png" },
+      { "name": "TuNa", "role": "Survivor", "image": "images/axiz_tuna.png" },
+      { "name": "monoP", "role": "Survivor", "image": "images/axiz_monop.jpeg" },
+      { "name": "Toki", "role": "Coach", "image": "images/axiz_toki.png" },
+      { "name": "iwashizum", "role": "Creator", "image": "images/axiz_iwashizum.jpg" },
+      { "name": "K3(Kakiki)", "role": "Creator", "image": "images/axiz_k3.jpg" },
+      { "name": "Lim", "role": "Manager", "image": "images/axiz_lim.png" },
+      { "name": "TARO", "role": "Manager", "image": "images/axiz_taro.jpg" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Arneb with WoG",
+    "icon": "images/AWG_icon.png",
+    "image": "images/AWG_all.jpg",
+    "achievements": "2024 秋季 IJL レギュラーシーズン 4位/プレイオフ 準優勝\n2025 夏季 IJL レギュラーシーズン 4位/プレイオフ 4位",
+    "twitter": "https://x.com/AWG_IDV",
+    "youtube": "https://www.youtube.com/channel/UCuVkVYethDdezAd7gvu52eQ",
+    "members": [
+      { "name": "yukakina", "role": "Hunter", "image": "images/awg_yukakina.jpg" },
+      { "name": "brontal", "role": "Hunter", "image": "images/awg_brontal.jpg" },
+      { "name": "Aez(Liz)", "role": "Survivor", "image": "images/awg_aez.jpg" },
+      { "name": "Scorpion", "role": "Survivor", "image": "images/awg_scorpion.jpg" },
+      { "name": "Nameko", "role": "Survivor", "image": "images/awg_nameko.jpg" },
+      { "name": "batoru", "role": "Survivor", "image": "images/awg_batoru.jpg" },
+      { "name": "Emmko", "role": "Survivor", "image": "images/awg_emmko.png" },
+      { "name": "tai", "role": "Coach", "image": "images/awg_brontal.jpg" },
+      { "name": "HNZN", "role": "Coach", "image": "images/awg_hnzn.jpg" },
+      { "name": "ShOgun", "role": "Creator", "image": "images/awg_shogun.jpg" },
+      { "name": "純情珈琲", "role": "Creator", "image": "images/awg_ko-hi-.png" }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "QT DIG",
+    "icon": "images/QTD_icon.png",
+    "image": "images/QTD_all.jpg",
+    "achievements": "2025 夏季 IJL レギュラーシーズン 8位/プレイオフ 未出場\n2025 秋季 IJL レギュラーシーズン 8位/プレイオフ 未出場",
+    "twitter": "https://x.com/QT_DIG?lang=ja",
+    "youtube": "https://www.youtube.com/channel/UCgb9RymNAisof83ItW3VbdA",
+    "members": [
+      { "name": "Kotami", "role": "Hunter", "image": "images/qtd_kotami.png" },
+      { "name": "Irohasu", "role": "Hunter", "image": "images/qtd_irohasu.png" },
+      { "name": "eMu", "role": "Survivor", "image": "images/qtd_emu.png" },
+      { "name": "Nach", "role": "Survivor", "image": "images/qtd_nach.png" },
+      { "name": "zizi", "role": "Survivor", "image": "images/qtd_zizi.png" },
+      { "name": "Myme", "role": "Survivor", "image": "images/qtd_myme.png" },
+      { "name": "yomi1", "role": "Survivor", "image": "images/qtd_yomi1.png" },
+      { "name": "Kruger", "role": "Coach", "image": "images/qtd_kruger.png" },
+      { "name": "yamamoto", "role": "Manager", "image": "images/qtd_yamamoto.png" }
+    ]
+  }
+]

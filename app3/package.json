@@ -1,0 +1,9 @@
+{
+  "name": "app3-idv-teams",
+  "version": "1.0.0",
+  "description": "Identity V Pro Team List",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

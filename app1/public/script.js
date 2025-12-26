@@ -1,10 +1,8 @@
+"use strict";
 let allSongs = [];
-let lastJsonString = ""; 
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchSongs();
-
-    setInterval(fetchSongs, 2000);
 
     const form = document.getElementById('add-song-form');
     if (form) {
@@ -39,26 +37,24 @@ async function fetchSongs() {
     if (!container) return; 
 
     try {
-        const response = await fetch('./songs.json');
+        const response = await fetch('/api/songs');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         
         const songs = await response.json();
 
-        const currentJsonString = JSON.stringify(songs);
-        if (currentJsonString !== lastJsonString) {
-            allSongs = songs;
-            lastJsonString = currentJsonString;
-            
-            const searchInput = document.getElementById('search-input');
-            if (searchInput && searchInput.value) {
-                searchInput.dispatchEvent(new Event('input'));
-            } else {
-                renderSongs(allSongs, container);
-            }
+        songs.sort((a, b) => a.id - b.id);
+        allSongs = songs;
+        
+        const searchInput = document.getElementById('search-input');
+        if (searchInput && searchInput.value) {
+            handleSearch({ target: searchInput });
+        } else {
+            renderSongs(allSongs, container);
         }
 
     } catch (error) {
         console.error(error);
+        container.innerHTML = '<p style="color:red;">Error loading data.</p>';
     }
 }
 
@@ -67,6 +63,7 @@ function handleSearch(event) {
     const container = document.getElementById('song-container');
 
     const filteredSongs = allSongs.filter(song => {
+        if (!song.title) return false;
         return song.title.toLowerCase().includes(term) || 
                song.year.toString().includes(term);
     });
@@ -85,7 +82,7 @@ function startEdit(id) {
 
     document.getElementById('form-title').textContent = '楽曲を編集する';
     document.getElementById('submit-btn').textContent = '更新する';
-    document.getElementById('cancel-btn').style.display = 'block';
+    document.getElementById('cancel-btn').style.display = 'inline-block';
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -110,7 +107,7 @@ async function handleFormSubmit(event) {
         title: formData.get('title'),
         year: Number(formData.get('year')),
         url: formData.get('url'),
-        vocal: "", 
+        vocal: "可不",
         illustration: "",
         movie: "",
         mix: "",
@@ -145,12 +142,12 @@ async function handleFormSubmit(event) {
 
     } catch (error) {
         console.error(error);
-        alert('Error');
+        alert('エラーが発生しました');
     }
 }
 
 async function deleteSong(id) {
-    if (!confirm('Delete this song?')) {
+    if (!confirm('本当に削除しますか？')) {
         return;
     }
 
@@ -163,11 +160,12 @@ async function deleteSong(id) {
             throw new Error('Delete failed');
         }
 
+        alert('削除しました');
         fetchSongs();
 
     } catch (error) {
         console.error(error);
-        alert('Error');
+        alert('削除に失敗しました');
     }
 }
 
@@ -209,12 +207,14 @@ function closeModal() {
 function renderSongs(songs, container) {
     container.innerHTML = '';
     
-    if (songs.length === 0) {
-        container.innerHTML = '<p>No songs found.</p>';
+    const validSongs = songs.filter(s => s.title && s.title !== "");
+
+    if (validSongs.length === 0) {
+        container.innerHTML = '<p>楽曲が見つかりません。</p>';
         return;
     }
 
-    songs.forEach(song => {
+    validSongs.forEach(song => {
         const card = document.createElement('div');
         card.className = 'song-card';
         card.innerHTML = `
