@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公式の編集</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>公式の編集</h1>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-btn">← キャンセルして戻る</a>
+
+        <form id="formula-form" class="formula-card" style="cursor: default;">
+            <input type="hidden" id="edit-id">
+
+            <div class="form-group">
+                <label>公式名</label>
+                <input type="text" id="name" required placeholder="例: 運動方程式">
+            </div>
+
+            <div class="form-group">
+                <label>LaTeX数式 (プレビュー付き)</label>
+                <input type="text" id="latex" required placeholder="例: F = ma">
+                <div id="latex-preview"
+                    style="margin-top:10px; padding:10px; background:#f9f9f9; text-align:center; min-height:50px;">
+                    $$ $$
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>説明</label>
+                <textarea id="description" rows="3" required placeholder="公式の説明を入力..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>記号の意味</label>
+                <div id="variables-container">
+                </div>
+                <button type="button" id="add-variable-btn" class="btn btn-secondary"
+                    style="margin-top:10px; font-size:0.8rem;">+ 記号を追加</button>
+            </div>
+
+            <div style="text-align:center; margin-top:30px;">
+                <button type="submit" class="btn btn-primary" style="width:200px;">保存する</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+
+</html>

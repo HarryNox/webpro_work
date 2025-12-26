@@ -1,4 +1,4 @@
-// 記号入力欄を追加する処理
+"use strict";
 document.getElementById('add-symbol-btn').addEventListener('click', () => {
     const container = document.getElementById('symbol-container');
     const currentRows = container.getElementsByClassName('symbol-row').length;
@@ -8,7 +8,6 @@ document.getElementById('add-symbol-btn').addEventListener('click', () => {
         return;
     }
 
-    // 新しい入力行を作成
     const newRow = document.createElement('div');
     newRow.className = 'symbol-row';
     newRow.innerHTML = `
@@ -19,11 +18,9 @@ document.getElementById('add-symbol-btn').addEventListener('click', () => {
     container.appendChild(newRow);
 });
 
-// フォーム送信時の処理
 document.getElementById('add-form').addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // 記号データの収集
     const symbols = [];
     const charInputs = document.querySelectorAll('.sym-char');
     const descInputs = document.querySelectorAll('.sym-desc');
@@ -31,13 +28,11 @@ document.getElementById('add-form').addEventListener('submit', (e) => {
     charInputs.forEach((input, index) => {
         const char = input.value.trim();
         const desc = descInputs[index].value.trim();
-        // 空欄でない場合のみ追加
         if (char && desc) {
             symbols.push({ char, desc });
         }
     });
 
-    // データの作成
     const newFormula = {
         name: document.getElementById('name').value,
         latex: document.getElementById('latex').value,
@@ -46,7 +41,6 @@ document.getElementById('add-form').addEventListener('submit', (e) => {
         usage: document.getElementById('usage').value
     };
 
-    // サーバーへ送信
     fetch('/api/formulas', {
         method: 'POST',
         headers: {

@@ -1,39 +1,772 @@
 [
   {
     "id": 1,
-    "name": "等加速度直線運動の速度",
-    "latex": "$$v = v_0 + at$$",
-    "description": "初速度を持って加速する物体の、時刻 t における速度を求める公式です。",
-    "symbols": [
-      { "char": "v", "desc": "時刻 t における速度 [m/s]" },
-      { "char": "v_0", "desc": "初速度 [m/s]" },
-      { "char": "a", "desc": "加速度 [m/s²]" },
-      { "char": "t", "desc": "経過時間 [s]" }
-    ],
-    "usage": "物体が一定の加速度で直線上を進んでいる時、ある時間が経過した後にどれくらいの速さになっているかを知りたい場合に使います。"
+    "name": "等速直線運動",
+    "latex": "x = vt",
+    "description": "速度が一定のときの移動距離。",
+    "variables": [
+      { "symbol": "x", "meaning": "変位 [m]" },
+      { "symbol": "v", "meaning": "速度 [m/s]" },
+      { "symbol": "t", "meaning": "時間 [s]" }
+    ]
   },
   {
     "id": 2,
-    "name": "運動方程式",
-    "latex": "$$F = ma$$",
-    "description": "ニュートンの第二法則。力と加速度の関係を示します。",
-    "symbols": [
-      { "char": "F", "desc": "物体にはたらく力 [N]" },
-      { "char": "m", "desc": "質量 [kg]" },
-      { "char": "a", "desc": "加速度 [m/s²]" }
-    ],
-    "usage": "物体に力が加わったとき、どれくらいの勢いで加速するか（または、ある加速度を生じさせるのにどれくらいの力が必要か）を計算する際に使います。物理学の基礎となる最も重要な式の一つです。"
+    "name": "等加速度直線運動 (速度)",
+    "latex": "v = v_0 + at",
+    "description": "加速度が一定のときの、時間tにおける速度。",
+    "variables": [
+      { "symbol": "v", "meaning": "速度 [m/s]" },
+      { "symbol": "v_0", "meaning": "初速度 [m/s]" },
+      { "symbol": "a", "meaning": "加速度 [m/s²]" },
+      { "symbol": "t", "meaning": "時間 [s]" }
+    ]
   },
   {
     "id": 3,
+    "name": "等加速度直線運動 (変位)",
+    "latex": "x = v_0t + \\frac{1}{2}at^2",
+    "description": "加速度が一定のときの、時間tにおける変位。",
+    "variables": [
+      { "symbol": "x", "meaning": "変位 [m]" },
+      { "symbol": "v_0", "meaning": "初速度 [m/s]" },
+      { "symbol": "t", "meaning": "時間 [s]" },
+      { "symbol": "a", "meaning": "加速度 [m/s²]" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "等加速度直線運動 (v-x関係)",
+    "latex": "v^2 - v_0^2 = 2ax",
+    "description": "時間tを含まない関係式。",
+    "variables": [
+      { "symbol": "v", "meaning": "速度 [m/s]" },
+      { "symbol": "v_0", "meaning": "初速度 [m/s]" },
+      { "symbol": "a", "meaning": "加速度 [m/s²]" },
+      { "symbol": "x", "meaning": "変位 [m]" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "力のモーメント",
+    "latex": "M = Fd",
+    "description": "剛体を回転させる能力の大きさ。",
+    "variables": [
+      { "symbol": "M", "meaning": "モーメント [N・m]" },
+      { "symbol": "F", "meaning": "力の大きさ [N]" },
+      { "symbol": "d", "meaning": "腕の長さ（作用線までの距離） [m]" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "フックの法則",
+    "latex": "F = kx",
+    "description": "ばねの弾性力の大きさ。",
+    "variables": [
+      { "symbol": "F", "meaning": "弾性力 [N]" },
+      { "symbol": "k", "meaning": "ばね定数 [N/m]" },
+      { "symbol": "x", "meaning": "ばねの伸び・縮み [m]" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "浮力",
+    "latex": "F = \\rho V g",
+    "description": "流体中の物体が受ける上向きの力（アルキメデスの原理）。",
+    "variables": [
+      { "symbol": "F", "meaning": "浮力 [N]" },
+      { "symbol": "\\rho", "meaning": "流体の密度 [kg/m³]" },
+      { "symbol": "V", "meaning": "物体が排除した流体の体積 [m³]" },
+      { "symbol": "g", "meaning": "重力加速度 [m/s²]" }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "運動方程式",
+    "latex": "ma = F",
+    "description": "質量、加速度、力の関係（ニュートンの第二法則）。",
+    "variables": [
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "a", "meaning": "加速度 [m/s²]" },
+      { "symbol": "F", "meaning": "合力 [N]" }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "最大摩擦力",
+    "latex": "F_{max} = \\mu N",
+    "description": "物体が滑り出す直前の摩擦力。",
+    "variables": [
+      { "symbol": "F_{max}", "meaning": "最大静止摩擦力 [N]" },
+      { "symbol": "\\mu", "meaning": "静止摩擦係数" },
+      { "symbol": "N", "meaning": "垂直抗力 [N]" }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "動摩擦力",
+    "latex": "F' = \\mu' N",
+    "description": "あらい面上を動く物体に働く摩擦力。",
+    "variables": [
+      { "symbol": "F'", "meaning": "動摩擦力 [N]" },
+      { "symbol": "\\mu'", "meaning": "動摩擦係数" },
+      { "symbol": "N", "meaning": "垂直抗力 [N]" }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "運動エネルギー",
+    "latex": "K = \\frac{1}{2}mv^2",
+    "description": "運動している物体が持つエネルギー。",
+    "variables": [
+      { "symbol": "K", "meaning": "運動エネルギー [J]" },
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "v", "meaning": "速さ [m/s]" }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "重力の位置エネルギー",
+    "latex": "U = mgh",
+    "description": "高さhにある物体が持つエネルギー。",
+    "variables": [
+      { "symbol": "U", "meaning": "位置エネルギー [J]" },
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "g", "meaning": "重力加速度 [m/s²]" },
+      { "symbol": "h", "meaning": "基準面からの高さ [m]" }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "弾性エネルギー",
+    "latex": "U = \\frac{1}{2}kx^2",
+    "description": "変形したばねが蓄えているエネルギー。",
+    "variables": [
+      { "symbol": "U", "meaning": "弾性エネルギー [J]" },
+      { "symbol": "k", "meaning": "ばね定数 [N/m]" },
+      { "symbol": "x", "meaning": "変形量 [m]" }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "仕事の定義",
+    "latex": "W = Fx \\cos \\theta",
+    "description": "一定の力Fが距離xだけ移動させたときの仕事。",
+    "variables": [
+      { "symbol": "W", "meaning": "仕事 [J]" },
+      { "symbol": "F", "meaning": "力 [N]" },
+      { "symbol": "x", "meaning": "移動距離 [m]" },
+      { "symbol": "\\theta", "meaning": "力の向きと移動方向のなす角" }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "仕事率",
+    "latex": "P = \\frac{W}{t} = Fv",
+    "description": "単位時間あたりにする仕事。",
+    "variables": [
+      { "symbol": "P", "meaning": "仕事率 [W]" },
+      { "symbol": "W", "meaning": "仕事 [J]" },
+      { "symbol": "t", "meaning": "時間 [s]" },
+      { "symbol": "F", "meaning": "力 [N]" },
+      { "symbol": "v", "meaning": "速さ [m/s]" }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "力学的エネルギー保存則",
+    "latex": "E = K + U = \\text{const}",
+    "description": "保存力のみが仕事をするとき、全エネルギーは保存される。",
+    "variables": [
+      { "symbol": "E", "meaning": "力学的エネルギー [J]" },
+      { "symbol": "K", "meaning": "運動エネルギー [J]" },
+      { "symbol": "U", "meaning": "位置エネルギー [J]" }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "運動量",
+    "latex": "p = mv",
+    "description": "運動の激しさを表すベクトル量。",
+    "variables": [
+      { "symbol": "p", "meaning": "運動量 [kg・m/s]" },
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "v", "meaning": "速度 [m/s]" }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "力積",
+    "latex": "I = F \\Delta t",
+    "description": "運動量の変化量は、物体が受けた力積に等しい。",
+    "variables": [
+      { "symbol": "I", "meaning": "力積 [N・s]" },
+      { "symbol": "F", "meaning": "平均の力 [N]" },
+      { "symbol": "\\Delta t", "meaning": "力が働いた時間 [s]" }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "運動量保存則",
+    "latex": "m_1v_1 + m_2v_2 = m_1v_1' + m_2v_2'",
+    "description": "外力が働かない系では、衝突前後で運動量の総和は変わらない。",
+    "variables": [
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "v", "meaning": "衝突前の速度 [m/s]" },
+      { "symbol": "v'", "meaning": "衝突後の速度 [m/s]" }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "反発係数 (はねかえり係数)",
+    "latex": "e = -\\frac{v_1' - v_2'}{v_1 - v_2}",
+    "description": "衝突前後の相対速度の比。0≦e≦1。",
+    "variables": [
+      { "symbol": "e", "meaning": "反発係数" },
+      { "symbol": "v", "meaning": "衝突前の速度 [m/s]" },
+      { "symbol": "v'", "meaning": "衝突後の速度 [m/s]" }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "円運動の角速度",
+    "latex": "v = r\\omega",
+    "description": "円運動の速さと角速度の関係。",
+    "variables": [
+      { "symbol": "v", "meaning": "速さ [m/s]" },
+      { "symbol": "r", "meaning": "半径 [m]" },
+      { "symbol": "\\omega", "meaning": "角速度 [rad/s]" }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "円運動の加速度",
+    "latex": "a = r\\omega^2 = \\frac{v^2}{r}",
+    "description": "円の中心に向かう加速度（向心加速度）。",
+    "variables": [
+      { "symbol": "a", "meaning": "加速度 [m/s²]" },
+      { "symbol": "r", "meaning": "半径 [m]" },
+      { "symbol": "\\omega", "meaning": "角速度 [rad/s]" },
+      { "symbol": "v", "meaning": "速さ [m/s]" }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "向心力",
+    "latex": "F = m r\\omega^2 = m \\frac{v^2}{r}",
+    "description": "等速円運動をさせるために必要な中心向きの力。",
+    "variables": [
+      { "symbol": "F", "meaning": "向心力 [N]" },
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "r", "meaning": "半径 [m]" },
+      { "symbol": "\\omega", "meaning": "角速度 [rad/s]" }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "単振り子の周期",
+    "latex": "T = 2\\pi \\sqrt{\\frac{l}{g}}",
+    "description": "振れ幅が小さいときの単振り子の周期。",
+    "variables": [
+      { "symbol": "T", "meaning": "周期 [s]" },
+      { "symbol": "l", "meaning": "糸の長さ [m]" },
+      { "symbol": "g", "meaning": "重力加速度 [m/s²]" }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "ばね振り子の周期",
+    "latex": "T = 2\\pi \\sqrt{\\frac{m}{k}}",
+    "description": "おもりの質量とばね定数で決まる周期。",
+    "variables": [
+      { "symbol": "T", "meaning": "周期 [s]" },
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "k", "meaning": "ばね定数 [N/m]" }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "万有引力の法則",
+    "latex": "F = G \\frac{Mm}{r^2}",
+    "description": "すべての物体の間に働く引力。",
+    "variables": [
+      { "symbol": "F", "meaning": "万有引力 [N]" },
+      { "symbol": "G", "meaning": "万有引力定数" },
+      { "symbol": "M, m", "meaning": "2物体の質量 [kg]" },
+      { "symbol": "r", "meaning": "物体間の距離 [m]" }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "ケプラーの第3法則",
+    "latex": "\\frac{T^2}{a^3} = k",
+    "description": "惑星の公転周期の2乗は、軌道長半径の3乗に比例する。",
+    "variables": [
+      { "symbol": "T", "meaning": "公転周期 [s]" },
+      { "symbol": "a", "meaning": "軌道長半径 [m]" },
+      { "symbol": "k", "meaning": "定数" }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "第一宇宙速度",
+    "latex": "v = \\sqrt{gR}",
+    "description": "地表すれすれを円軌道で周回するための速度。",
+    "variables": [
+      { "symbol": "v", "meaning": "速度 [m/s]" },
+      { "symbol": "g", "meaning": "重力加速度 [m/s²]" },
+      { "symbol": "R", "meaning": "地球の半径 [m]" }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "熱容量と比熱",
+    "latex": "Q = C \\Delta T = mc \\Delta T",
+    "description": "物体の温度を変化させるのに必要な熱量。",
+    "variables": [
+      { "symbol": "Q", "meaning": "熱量 [J]" },
+      { "symbol": "C", "meaning": "熱容量 [J/K]" },
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "c", "meaning": "比熱 [J/(kg・K)]" },
+      { "symbol": "\\Delta T", "meaning": "温度変化 [K]" }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "潜熱",
+    "latex": "Q = mL",
+    "description": "状態変化（融解・蒸発など）に必要な熱量。",
+    "variables": [
+      { "symbol": "Q", "meaning": "熱量 [J]" },
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "L", "meaning": "融解熱・蒸発熱 [J/kg]" }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "ボイル・シャルルの法則",
+    "latex": "\\frac{pV}{T} = \\text{一定}",
+    "description": "理想気体における圧力・体積・温度の関係式。",
+    "variables": [
+      { "symbol": "p", "meaning": "圧力 [Pa]" },
+      { "symbol": "V", "meaning": "体積 [m³]" },
+      { "symbol": "T", "meaning": "絶対温度 [K]" }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "理想気体の状態方程式",
+    "latex": "pV = nRT",
+    "description": "物質量を含む、理想気体の状態を表す基本式。",
+    "variables": [
+      { "symbol": "p", "meaning": "圧力 [Pa]" },
+      { "symbol": "V", "meaning": "体積 [m³]" },
+      { "symbol": "n", "meaning": "物質量 [mol]" },
+      { "symbol": "R", "meaning": "気体定数 [J/(mol・K)]" },
+      { "symbol": "T", "meaning": "絶対温度 [K]" }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "気体の分子運動論（圧力）",
+    "latex": "p = \\frac{Nm\\overline{v^2}}{3V}",
+    "description": "気体分子の運動から圧力を導く式。",
+    "variables": [
+      { "symbol": "p", "meaning": "圧力 [Pa]" },
+      { "symbol": "N", "meaning": "分子数" },
+      { "symbol": "m", "meaning": "分子1個の質量 [kg]" },
+      { "symbol": "\\overline{v^2}", "meaning": "二乗平均速度 [m²/s²]" },
+      { "symbol": "V", "meaning": "体積 [m³]" }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "気体の内部エネルギー",
+    "latex": "U = \\frac{3}{2}nRT",
+    "description": "単原子分子理想気体の内部エネルギー。",
+    "variables": [
+      { "symbol": "U", "meaning": "内部エネルギー [J]" },
+      { "symbol": "n", "meaning": "物質量 [mol]" },
+      { "symbol": "R", "meaning": "気体定数" },
+      { "symbol": "T", "meaning": "絶対温度 [K]" }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "熱力学第一法則",
+    "latex": "Q = \\Delta U + W_{out}",
+    "description": "気体に加えた熱量は、内部エネルギーの増加と外部への仕事になる。",
+    "variables": [
+      { "symbol": "Q", "meaning": "吸収した熱量 [J]" },
+      { "symbol": "\\Delta U", "meaning": "内部エネルギーの変化 [J]" },
+      { "symbol": "W_{out}", "meaning": "外部へした仕事 [J]" }
+    ]
+  },
+  {
+    "id": 36,
+    "name": "熱機関の熱効率",
+    "latex": "e = \\frac{W}{Q_1} = \\frac{Q_1 - Q_2}{Q_1}",
+    "description": "高温熱源から得た熱に対する、仕事として取り出せた割合。",
+    "variables": [
+      { "symbol": "e", "meaning": "熱効率" },
+      { "symbol": "W", "meaning": "正味の仕事 [J]" },
+      { "symbol": "Q_1", "meaning": "吸収した熱量 [J]" },
+      { "symbol": "Q_2", "meaning": "放出した熱量 [J]" }
+    ]
+  },
+  {
+    "id": 37,
+    "name": "波の基本式",
+    "latex": "v = f \\lambda",
+    "description": "波の速さ、振動数、波長の関係。",
+    "variables": [
+      { "symbol": "v", "meaning": "波の速さ [m/s]" },
+      { "symbol": "f", "meaning": "振動数 [Hz]" },
+      { "symbol": "\\lambda", "meaning": "波長 [m]" }
+    ]
+  },
+  {
+    "id": 38,
+    "name": "波の周期",
+    "latex": "T = \\frac{1}{f}",
+    "description": "1回振動するのにかかる時間と振動数の関係。",
+    "variables": [
+      { "symbol": "T", "meaning": "周期 [s]" },
+      { "symbol": "f", "meaning": "振動数 [Hz]" }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "正弦波の式",
+    "latex": "y = A \\sin 2\\pi \\left(\\frac{t}{T} - \\frac{x}{\\lambda}\\right)",
+    "description": "x軸の正の向きに進む正弦波の変位を表す式。",
+    "variables": [
+      { "symbol": "y", "meaning": "変位 [m]" },
+      { "symbol": "A", "meaning": "振幅 [m]" },
+      { "symbol": "t", "meaning": "時間 [s]" },
+      { "symbol": "x", "meaning": "位置 [m]" },
+      { "symbol": "T", "meaning": "周期 [s]" },
+      { "symbol": "\\lambda", "meaning": "波長 [m]" }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "定常波 (弦)",
+    "latex": "l = \\frac{\\lambda}{2} \\times n",
+    "description": "両端固定の弦にできる定常波の条件（nは腹の数）。",
+    "variables": [
+      { "symbol": "l", "meaning": "弦の長さ [m]" },
+      { "symbol": "\\lambda", "meaning": "波長 [m]" },
+      { "symbol": "n", "meaning": "自然数 (1, 2, 3...)" }
+    ]
+  },
+  {
+    "id": 41,
+    "name": "気柱の振動 (閉管)",
+    "latex": "l = \\frac{\\lambda}{4} (2n - 1)",
+    "description": "片方が閉じた管での共鳴条件。",
+    "variables": [
+      { "symbol": "l", "meaning": "気柱の長さ [m]" },
+      { "symbol": "\\lambda", "meaning": "波長 [m]" },
+      { "symbol": "n", "meaning": "自然数 (1, 2, 3...)" }
+    ]
+  },
+  {
+    "id": 42,
+    "name": "うなり",
+    "latex": "f = |f_1 - f_2|",
+    "description": "振動数の近い2つの音が重なったときの、音の大小の繰返し数。",
+    "variables": [
+      { "symbol": "f", "meaning": "うなりの回数（1秒あたり）" },
+      { "symbol": "f_1, f_2", "meaning": "2つの音の振動数 [Hz]" }
+    ]
+  },
+  {
+    "id": 43,
+    "name": "ドップラー効果",
+    "latex": "f' = \\frac{V - v_o}{V - v_s} f",
+    "description": "音源と観測者が動くときの振動数の変化。",
+    "variables": [
+      { "symbol": "f'", "meaning": "観測される振動数 [Hz]" },
+      { "symbol": "V", "meaning": "音速 [m/s]" },
+      { "symbol": "v_o", "meaning": "観測者の速度 [m/s]" },
+      { "symbol": "v_s", "meaning": "音源の速度 [m/s]" },
+      { "symbol": "f", "meaning": "元の振動数 [Hz]" }
+    ]
+  },
+  {
+    "id": 44,
+    "name": "スネルの法則 (屈折)",
+    "latex": "n_{12} = \\frac{\\sin i}{\\sin r} = \\frac{v_1}{v_2} = \\frac{\\lambda_1}{\\lambda_2}",
+    "description": "波が媒質1から媒質2へ進むときの屈折の関係。",
+    "variables": [
+      { "symbol": "i", "meaning": "入射角" },
+      { "symbol": "r", "meaning": "屈折角" },
+      { "symbol": "v", "meaning": "速さ" },
+      { "symbol": "\\lambda", "meaning": "波長" },
+      { "symbol": "n_{12}", "meaning": "相対屈折率" }
+    ]
+  },
+  {
+    "id": 45,
+    "name": "レンズの公式",
+    "latex": "\\frac{1}{a} + \\frac{1}{b} = \\frac{1}{f}",
+    "description": "凸レンズ・凹レンズにおける結像公式。",
+    "variables": [
+      { "symbol": "a", "meaning": "物体との距離 [m]" },
+      { "symbol": "b", "meaning": "像との距離 [m]" },
+      { "symbol": "f", "meaning": "焦点距離 [m]" }
+    ]
+  },
+  {
+    "id": 46,
+    "name": "ヤングの干渉実験 (明線条件)",
+    "latex": "d \\sin \\theta \\approx d \\frac{x}{L} = m\\lambda",
+    "description": "二重スリットを通った光が強め合う条件。",
+    "variables": [
+      { "symbol": "d", "meaning": "スリット間隔 [m]" },
+      { "symbol": "x", "meaning": "中心からの距離 [m]" },
+      { "symbol": "L", "meaning": "スクリーンまでの距離 [m]" },
+      { "symbol": "m", "meaning": "次数 (0, 1, 2...)" }
+    ]
+  },
+  {
+    "id": 47,
+    "name": "クーロンの法則",
+    "latex": "F = k \\frac{q_1 q_2}{r^2}",
+    "description": "点電荷の間にはたらく静電気力。",
+    "variables": [
+      { "symbol": "F", "meaning": "静電気力 [N]" },
+      { "symbol": "k", "meaning": "クーロン定数" },
+      { "symbol": "q", "meaning": "電気量 [C]" },
+      { "symbol": "r", "meaning": "距離 [m]" }
+    ]
+  },
+  {
+    "id": 48,
+    "name": "電界の強さ (点電荷)",
+    "latex": "E = k \\frac{Q}{r^2}",
+    "description": "点電荷Qが距離rの地点につくる電界。",
+    "variables": [
+      { "symbol": "E", "meaning": "電界の強さ [N/C] or [V/m]" },
+      { "symbol": "Q", "meaning": "電気量 [C]" },
+      { "symbol": "r", "meaning": "距離 [m]" }
+    ]
+  },
+  {
+    "id": 49,
+    "name": "電位 (点電荷)",
+    "latex": "V = k \\frac{Q}{r}",
+    "description": "無限遠を基準としたときの点電荷による電位。",
+    "variables": [
+      { "symbol": "V", "meaning": "電位 [V]" },
+      { "symbol": "Q", "meaning": "電気量 [C]" },
+      { "symbol": "r", "meaning": "距離 [m]" }
+    ]
+  },
+  {
+    "id": 50,
+    "name": "コンデンサーの電気容量",
+    "latex": "C = \\varepsilon \\frac{S}{d}",
+    "description": "平行平板コンデンサーの容量の決まり方。",
+    "variables": [
+      { "symbol": "C", "meaning": "電気容量 [F]" },
+      { "symbol": "\\varepsilon", "meaning": "誘電率" },
+      { "symbol": "S", "meaning": "極板面積 [m²]" },
+      { "symbol": "d", "meaning": "極板間隔 [m]" }
+    ]
+  },
+  {
+    "id": 51,
+    "name": "基本式 Q=CV",
+    "latex": "Q = CV",
+    "description": "コンデンサーに蓄えられる電荷と電圧の関係。",
+    "variables": [
+      { "symbol": "Q", "meaning": "電荷 [C]" },
+      { "symbol": "C", "meaning": "電気容量 [F]" },
+      { "symbol": "V", "meaning": "電圧 [V]" }
+    ]
+  },
+  {
+    "id": 52,
+    "name": "コンデンサーの静電エネルギー",
+    "latex": "U = \\frac{1}{2}QV = \\frac{1}{2}CV^2",
+    "description": "充電されたコンデンサーが持つエネルギー。",
+    "variables": [
+      { "symbol": "U", "meaning": "エネルギー [J]" },
+      { "symbol": "Q", "meaning": "電荷 [C]" },
+      { "symbol": "V", "meaning": "電圧 [V]" },
+      { "symbol": "C", "meaning": "電気容量 [F]" }
+    ]
+  },
+  {
+    "id": 53,
     "name": "オームの法則",
-    "latex": "$$V = RI$$",
-    "description": "電流、電圧、抵抗の関係を示す電気回路の基本法則です。",
-    "symbols": [
-      { "char": "V", "desc": "電圧 [V]" },
-      { "char": "R", "desc": "抵抗 [Ω]" },
-      { "char": "I", "desc": "電流 [A]" }
-    ],
-    "usage": "電気回路において、抵抗にかかる電圧や流れる電流を求めたい時に使います。"
+    "latex": "V = RI",
+    "description": "電流、電圧、抵抗の基本関係式。",
+    "variables": [
+      { "symbol": "V", "meaning": "電圧 [V]" },
+      { "symbol": "R", "meaning": "抵抗 [Ω]" },
+      { "symbol": "I", "meaning": "電流 [A]" }
+    ]
+  },
+  {
+    "id": 54,
+    "name": "抵抗の直列接続",
+    "latex": "R = R_1 + R_2 + \\dots",
+    "description": "直列につないだときの合成抵抗。",
+    "variables": [
+      { "symbol": "R", "meaning": "合成抵抗 [Ω]" },
+      { "symbol": "R_n", "meaning": "各抵抗 [Ω]" }
+    ]
+  },
+  {
+    "id": 55,
+    "name": "抵抗の並列接続",
+    "latex": "\\frac{1}{R} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots",
+    "description": "並列につないだときの合成抵抗。",
+    "variables": [
+      { "symbol": "R", "meaning": "合成抵抗 [Ω]" },
+      { "symbol": "R_n", "meaning": "各抵抗 [Ω]" }
+    ]
+  },
+  {
+    "id": 56,
+    "name": "ジュール熱 (消費電力)",
+    "latex": "P = IV = I^2R = \\frac{V^2}{R}",
+    "description": "抵抗で消費される電力（単位時間あたりの発熱）。",
+    "variables": [
+      { "symbol": "P", "meaning": "電力 [W]" },
+      { "symbol": "I", "meaning": "電流 [A]" },
+      { "symbol": "V", "meaning": "電圧 [V]" },
+      { "symbol": "R", "meaning": "抵抗 [Ω]" }
+    ]
+  },
+  {
+    "id": 57,
+    "name": "電流が作る磁場 (直線)",
+    "latex": "H = \\frac{I}{2\\pi r}",
+    "description": "無限に長い直線電流が作る磁場の強さ。",
+    "variables": [
+      { "symbol": "H", "meaning": "磁場の強さ [A/m]" },
+      { "symbol": "I", "meaning": "電流 [A]" },
+      { "symbol": "r", "meaning": "距離 [m]" }
+    ]
+  },
+  {
+    "id": 58,
+    "name": "ローレンツ力",
+    "latex": "f = qvB",
+    "description": "磁場中を動く荷電粒子が受ける力（v⊥Bのとき）。",
+    "variables": [
+      { "symbol": "f", "meaning": "ローレンツ力 [N]" },
+      { "symbol": "q", "meaning": "電気量 [C]" },
+      { "symbol": "v", "meaning": "速さ [m/s]" },
+      { "symbol": "B", "meaning": "磁束密度 [T]" }
+    ]
+  },
+  {
+    "id": 59,
+    "name": "電流が磁場から受ける力",
+    "latex": "F = IBL",
+    "description": "磁場中の導線に電流を流したときに受ける力（I⊥Bのとき）。",
+    "variables": [
+      { "symbol": "F", "meaning": "電磁力 [N]" },
+      { "symbol": "I", "meaning": "電流 [A]" },
+      { "symbol": "B", "meaning": "磁束密度 [T]" },
+      { "symbol": "L", "meaning": "導線の長さ [m]" }
+    ]
+  },
+  {
+    "id": 60,
+    "name": "誘導起電力 (ファラデーの法則)",
+    "latex": "V = -N \\frac{\\Delta \\Phi}{\\Delta t}",
+    "description": "コイルを貫く磁束が変化するときに生じる電圧。",
+    "variables": [
+      { "symbol": "V", "meaning": "誘導起電力 [V]" },
+      { "symbol": "N", "meaning": "巻き数" },
+      { "symbol": "\\Delta \\Phi", "meaning": "磁束の変化 [Wb]" },
+      { "symbol": "\\Delta t", "meaning": "時間変化 [s]" }
+    ]
+  },
+  {
+    "id": 61,
+    "name": "自己誘導",
+    "latex": "V = -L \\frac{\\Delta I}{\\Delta t}",
+    "description": "コイル自身の電流変化によって生じる起電力。",
+    "variables": [
+      { "symbol": "V", "meaning": "誘導起電力 [V]" },
+      { "symbol": "L", "meaning": "自己インダクタンス [H]" },
+      { "symbol": "\\Delta I", "meaning": "電流の変化 [A]" }
+    ]
+  },
+  {
+    "id": 62,
+    "name": "変圧器",
+    "latex": "\\frac{V_1}{V_2} = \\frac{N_1}{N_2}",
+    "description": "交流電圧の変圧比は巻き数に比例する。",
+    "variables": [
+      { "symbol": "V", "meaning": "電圧 [V]" },
+      { "symbol": "N", "meaning": "コイルの巻き数" }
+    ]
+  },
+  {
+    "id": 63,
+    "name": "RLC直列回路のインピーダンス",
+    "latex": "Z = \\sqrt{R^2 + \\left(\\omega L - \\frac{1}{\\omega C}\\right)^2}",
+    "description": "抵抗・コイル・コンデンサーを直列につないだときの合成抵抗。",
+    "variables": [
+      { "symbol": "Z", "meaning": "インピーダンス [Ω]" },
+      { "symbol": "R", "meaning": "抵抗 [Ω]" },
+      { "symbol": "\\omega", "meaning": "角周波数 [rad/s]" },
+      { "symbol": "L", "meaning": "インダクタンス [H]" },
+      { "symbol": "C", "meaning": "電気容量 [F]" }
+    ]
+  },
+  {
+    "id": 64,
+    "name": "光子のエネルギー",
+    "latex": "E = h\\nu = h \\frac{c}{\\lambda}",
+    "description": "光の粒子性が持つエネルギー。",
+    "variables": [
+      { "symbol": "E", "meaning": "エネルギー [J]" },
+      { "symbol": "h", "meaning": "プランク定数 [J・s]" },
+      { "symbol": "\\nu", "meaning": "振動数 [Hz]" },
+      { "symbol": "\\lambda", "meaning": "波長 [m]" }
+    ]
+  },
+  {
+    "id": 65,
+    "name": "光電効果",
+    "latex": "K_{max} = h\\nu - W",
+    "description": "光を当てたときに飛び出す電子の最大エネルギー。",
+    "variables": [
+      { "symbol": "K_{max}", "meaning": "最大運動エネルギー [J]" },
+      { "symbol": "h\\nu", "meaning": "光子のエネルギー [J]" },
+      { "symbol": "W", "meaning": "仕事関数 [J]" }
+    ]
+  },
+  {
+    "id": 66,
+    "name": "質量とエネルギーの等価性",
+    "latex": "E = mc^2",
+    "description": "質量はエネルギーの一形態である（特殊相対性理論）。",
+    "variables": [
+      { "symbol": "E", "meaning": "静止エネルギー [J]" },
+      { "symbol": "m", "meaning": "質量 [kg]" },
+      { "symbol": "c", "meaning": "光速 [m/s]" }
+    ]
+  },
+  {
+    "id": 67,
+    "name": "放射性崩壊",
+    "latex": "N = N_0 \\left(\\frac{1}{2}\\right)^{\\frac{t}{T}}",
+    "description": "時間が経つにつれて放射性原子核が減っていく法則。",
+    "variables": [
+      { "symbol": "N", "meaning": "残っている原子数" },
+      { "symbol": "N_0", "meaning": "初めの原子数" },
+      { "symbol": "t", "meaning": "経過時間" },
+      { "symbol": "T", "meaning": "半減期" }
+    ]
   }
 ]
